@@ -1,0 +1,25 @@
+<br>
+<div class="body">
+    <div class="head">
+        <h4 class="title">Disponibilidad de Mecanicos</h4>
+    </div>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Cedula</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let mecanico of mecanicos">
+                <td>{{mecanico.documento}}</td>
+                <td>{{mecanico.primernombre}}</td>
+                <td>{{mecanico.primerapellido}}</td>
+                <td>{{mecanico.estado}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

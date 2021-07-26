@@ -1,0 +1,114 @@
+<br>
+<h3>Ingreso de Mecanicos</h3>
+<br>
+<form [formGroup]="form" (ngSubmit)="save($event)">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+            <label  class="form-label">Tipo Documento <i style="color: red;"> *</i></label>
+            <select [(ngModel)]="mecanicos.tipodocumento" class="form-select" formControlName="tipodocumento" aria-label="Default select example">
+                <option selected></option>
+                <option value="1">Cédula de Ciudadania</option>
+                <option value="2">Cédula de Extranjeria</option>
+                <option value="3">Pasaporte</option>
+              </select>
+              <div *ngIf="tipodocumentoField.errors && tipodocumentoField.touched">
+                <p style="font-style: italic; color: red;" *ngIf="tipodocumentoField.hasError('required')">
+                    Campo Requerido
+                </p>
+            </div>
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1" class="form-label">Numero Documento <i style="color: red;"> *</i></label>
+            <input [(ngModel)]="mecanicos.documento" type="text" formControlName="documento" class="form-control">
+            <div *ngIf="documentoField.errors && documentoField.touched">
+                <p style="font-style: italic; color: red;" *ngIf="documentoField.hasError('required')">
+                    Campo Requerido
+                </p>
+                <p style="font-style: italic; color: red;" *ngIf="documentoField.hasError('pattern')">
+                    El campo debe ser numerico
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+            <label for="exampleFormControlInput1" class="form-label">Primer Nombre <i style="color: red;"> *</i></label>
+            <input [(ngModel)]="mecanicos.primernombre" type="text" formControlName="name" class="form-control">
+            <div *ngIf="nameField.errors && nameField.touched">
+                <p style="font-style: italic; color: red;" *ngIf="nameField.hasError('required')">
+                    Campo Requerido
+                </p>
+            </div>
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1" class="form-label">Segundo Nombre</label>
+            <input [(ngModel)]="mecanicos.segundonombre"  type="text" class="form-control">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1" class="form-label">Primer Apellido <i style="color: red;"> *</i></label>
+            <input [(ngModel)]="mecanicos.primerapellido" type="text" formControlName="apellido" class="form-control">
+            <div *ngIf="apellidoField.errors && apellidoField.touched">
+                <p style="font-style: italic; color: red;" *ngIf="apellidoField.hasError('required')">
+                    Campo Requerido
+                </p>
+            </div>
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1" class="form-label">Segundo Apellido</label>
+            <input [(ngModel)]="mecanicos.segundoapellido" type="text" class="form-control">
+        </div>
+    </div>
+    <br>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+            <label for="exampleFormControlInput1" class="form-label">Celular <i style="color: red;"> *</i></label>
+            <input [(ngModel)]="mecanicos.celular" type="text" formControlName="celular" class="form-control">
+            <div *ngIf="celularField.errors && celularField.touched">
+                <p style="font-style: italic; color: red;" *ngIf="celularField.hasError('required')">
+                    Campo Requerido
+                </p>
+                <p style="font-style: italic; color: red;" *ngIf="celularField.hasError('pattern')">
+                    El campo debe ser numerico
+                </p>
+            </div>
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1" class="form-label">Direccion <i style="color: red;"> *</i></label>
+            <input [(ngModel)]="mecanicos.direccion" type="text" formControlName="direccion" class="form-control">
+            <div *ngIf="direccionField.errors && direccionField.touched">
+                <p style="font-style: italic; color: red;" *ngIf="direccionField.hasError('required')">
+                    Campo Requerido
+                </p>
+            </div>
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1" class="form-label">Email <i style="color: red;"> *</i></label>
+            <input [(ngModel)]="mecanicos.email" type="email" formControlName="email" class="form-control">
+            <div *ngIf="emailField.errors && emailField.touched">
+                <p style="font-style: italic; color: red;" *ngIf="emailField.hasError('required')">
+                    Campo Requerido
+                </p>
+                <p style="font-style: italic; color: red;" *ngIf="emailField.hasError('email')">
+                    No es un correo valido
+                </p>
+            </div>
+        </div>
+        
+        <div class="col">
+            <label for="exampleFormControlInput1" class="form-label">Estado (Libre-Ocupado) <i style="color: red;"> *</i></label>
+            <input [(ngModel)]="mecanicos.estado" type="text" formControlName="estado" class="form-control">
+            <div *ngIf="estadoField.errors && estadoField.touched">
+                <p style="font-style: italic; color: red;" *ngIf="estadoField.hasError('required')">
+                    Campo Requerido
+                </p>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="d-grid gap-2 col-4 mx-auto">
+        <button class="btn btn-primary" type="submit" >Grabar</button>
+        <button class="btn btn-secondary" type="button" (click)="reiniciar()" >Reiniciar</button>
+    </div>
+    
+</form>
